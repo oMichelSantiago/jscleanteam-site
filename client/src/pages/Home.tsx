@@ -20,17 +20,17 @@ export default function Home() {
 
   const portfolioItems = [
     {
-      image: '/images/portfolio-master-bedroom.jpg',
+      image: '/images/portfolio-master-bedroom.webp',
       title: 'Master Bedroom',
       location: 'Santa Rosa Beach',
     },
     {
-      image: '/images/portfolio-modern-kitchen.jpg',
+      image: '/images/portfolio-modern-kitchen.webp',
       title: 'Modern Kitchen',
       location: 'Emerald Coast',
     },
     {
-      image: '/images/portfolio-bathroom-spa.jpg',
+      image: '/images/portfolio-bathroom-spa.webp',
       title: 'Spa Bathroom',
       location: 'Northwest Florida',
     },
@@ -45,7 +45,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/images/hero-luxury-living-room.jpg)',
+            backgroundImage: 'url(/images/hero-luxury-living-room.webp)',
           }}
         >
           <div className="absolute inset-0 bg-black/20"></div>
