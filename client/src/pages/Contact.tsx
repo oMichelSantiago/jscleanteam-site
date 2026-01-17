@@ -184,7 +184,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
-                        placeholder="+1 (662) 662-2243"
+                        placeholder="+1 (321) 662-2243"
                       />
                     </div>
 
@@ -261,10 +261,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">Phone</h3>
                     <a
-                      href="tel:+16626622243"
+                      href="tel:+13216622243"
                       className="text-sm font-light text-gray-700 hover:text-sand-gold transition-colors"
                     >
-                      +1 (662) 662-2243
+                      +1 (321) 662-2243
                     </a>
                   </div>
                 </div>
@@ -275,12 +275,12 @@ export default function Contact() {
                   <div>
                     <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">WhatsApp</h3>
                     <a
-                      href="https://wa.me/16626622243"
+                      href="https://wa.me/13216622243"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-light text-gray-700 hover:text-sand-gold transition-colors"
                     >
-                      +1 (662) 662-2243
+                      +1 (321) 662-2243
                     </a>
                   </div>
                 </div>
