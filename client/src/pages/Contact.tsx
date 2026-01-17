@@ -219,28 +219,30 @@ export default function Contact() {
                       />
                     </div>
 
-                    {/* Button (Sand Gold) */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full px-6 py-3 text-sm font-light tracking-wide transition-colors"
-                      style={{
-                        backgroundColor: isSubmitting ? '#9CA3AF' : SAND_GOLD,
-                        color: '#FFFFFF',
-                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                        opacity: isSubmitting ? 0.85 : 1,
-                      }}
-                      onMouseEnter={(e) => {
-                        if (isSubmitting) return;
-                        (e.currentTarget as HTMLButtonElement).style.backgroundColor = SAND_GOLD_HOVER;
-                      }}
-                      onMouseLeave={(e) => {
-                        if (isSubmitting) return;
-                        (e.currentTarget as HTMLButtonElement).style.backgroundColor = SAND_GOLD;
-                      }}
-                    >
-                      {isSubmitting ? 'Sending…' : 'Send Message'}
-                    </button>
+                  <button
+  type="submit"
+  disabled={isSubmitting}
+  className="w-full px-6 py-3 text-sm font-medium tracking-wide transition-colors border"
+  style={{
+    backgroundColor: '#FFFFFF',
+    color: '#002147',
+    borderColor: '#002147',
+    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+    opacity: isSubmitting ? 0.6 : 1,
+  }}
+  onMouseEnter={(e) => {
+    if (isSubmitting) return;
+    e.currentTarget.style.backgroundColor = '#002147';
+    e.currentTarget.style.color = '#FFFFFF';
+  }}
+  onMouseLeave={(e) => {
+    if (isSubmitting) return;
+    e.currentTarget.style.backgroundColor = '#FFFFFF';
+    e.currentTarget.style.color = '#002147';
+  }}
+>
+  {isSubmitting ? 'Sending…' : 'Send Message'}
+</button>
                   </form>
                 </>
               )}
