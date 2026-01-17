@@ -3,8 +3,22 @@ import Footer from '@/components/Footer';
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Instagram, Facebook, MessageCircle } from 'lucide-react';
 
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  propertyType: string;
+  message: string;
+};
+
+type SubmitStatus =
+  | { state: 'idle' }
+  | { state: 'submitting' }
+  | { state: 'success'; message: string }
+  | { state: 'error'; message: string };
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormState>({
     name: '',
     email: '',
     phone: '',
@@ -12,26 +26,78 @@ export default function Contact() {
     message: '',
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>({ state: 'idle' });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send data to a backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
+
+    setStatus({ state: 'submitting' });
+
+    // IMPORTANT: paste your Web3Forms key here
+    const ACCESS_KEY = '8d7e852f-03e4-420a-8630-86cee27a51fc';
+
+    try {
+      const payload = new FormData();
+      payload.append('access_key', ACCESS_KEY);
+
+      // Anti-spam honeypot (Web3Forms recommends)
+      payload.append('botcheck', '');
+
+      // Metadata
+      payload.append('from_name', 'JS Clean Team Website');
+      payload.append('subject', 'New contact request — JS Clean Team');
+      payload.append('replyto', formData.email);
+
+      // Fields
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('propertyType', formData.propertyType);
+      payload.append('message', formData.message);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: payload,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data?.success) {
+        const msg =
+          data?.message ||
+          'We could not send your message right now. Please try again or contact us by phone.';
+        setStatus({ state: 'error', message: msg });
+        return;
+      }
+
+      setStatus({
+        state: 'success',
+        message: 'Thank you for reaching out. We will contact you soon to discuss your property care needs.',
+      });
+
       setFormData({ name: '', email: '', phone: '', propertyType: '', message: '' });
-      setSubmitted(false);
-    }, 3000);
+
+      // Optional: auto-hide success after a few seconds
+      setTimeout(() => setStatus({ state: 'idle' }), 5000);
+    } catch (err) {
+      setStatus({
+        state: 'error',
+        message: 'Network error. Please try again in a moment or contact us directly by phone.',
+      });
+    }
   };
+
+  const isSubmitting = status.state === 'submitting';
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -59,98 +125,121 @@ export default function Contact() {
                 Get in Touch
               </h2>
 
-              {submitted ? (
+              {status.state === 'success' ? (
                 <div className="bg-green-50 border border-green-200 rounded p-6 text-center">
                   <p className="text-sm font-light text-green-800">
-                    Thank you for reaching out. We will contact you soon to discuss your property care needs.
+                    {status.message}
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-light text-navy mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
-                      placeholder="Your name"
-                    />
-                  </div>
+                <>
+                  {status.state === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded p-4 mb-6">
+                      <p className="text-sm font-light text-red-800">
+                        {status.message}
+                      </p>
+                    </div>
+                  )}
 
-                  <div>
-                    <label className="block text-sm font-light text-navy mb-2">
-                      Email
-                    </label>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Honeypot (hidden) */}
                     <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
-                      placeholder="your@email.com"
+                      type="checkbox"
+                      name="botcheck"
+                      className="hidden"
+                      style={{ display: 'none' }}
+                      tabIndex={-1}
+                      autoComplete="off"
                     />
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-light text-navy mb-2">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
-                      placeholder="+1 (662) 662-2243"
-                    />
-                  </div>
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
 
-                  <div>
-                    <label className="block text-sm font-light text-navy mb-2">
-                      Property Type
-                    </label>
-                    <select
-                      name="propertyType"
-                      value={formData.propertyType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Phone
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                        placeholder="+1 (662) 662-2243"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Property Type
+                      </label>
+                      <select
+                        name="propertyType"
+                        value={formData.propertyType}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                      >
+                        <option value="">Select property type</option>
+                        <option value="residential">Residential</option>
+                        <option value="vacation-rental">Vacation Rental</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={5}
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors resize-none"
+                        placeholder="Tell us about your property care needs..."
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className={`w-full px-6 py-3 bg-navy text-white text-sm font-light tracking-wide hover:bg-opacity-90 transition-colors ${
+                        isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
+                      }`}
                     >
-                      <option value="">Select property type</option>
-                      <option value="residential">Residential</option>
-                      <option value="vacation-rental">Vacation Rental</option>
-                      <option value="commercial">Commercial</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-light text-navy mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors resize-none"
-                      placeholder="Tell us about your property care needs..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full px-6 py-3 bg-navy text-white text-sm font-light tracking-wide hover:bg-opacity-90 transition-colors"
-                  >
-                    Send Message
-                  </button>
-                </form>
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                    </button>
+                  </form>
+                </>
               )}
             </div>
 
