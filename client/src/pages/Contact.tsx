@@ -229,15 +229,17 @@ export default function Contact() {
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className={`w-full px-6 py-3 bg-navy text-white text-sm font-light tracking-wide hover:bg-opacity-90 transition-colors ${
-                        isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
-                      }`}
-                    >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
-                    </button>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className={`w-full px-6 py-3 text-sm font-light tracking-wide transition-colors
+                  ${loading
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-[#C9A24D] hover:bg-[#b8923f] text-white'
+                  }`}
+>
+                  {loading ? 'Sending…' : 'Send Message'}
+                </button>
                   </form>
                 </>
               )}
