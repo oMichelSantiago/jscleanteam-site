@@ -43,14 +43,14 @@ export default function Contact() {
 
     setStatus({ state: 'submitting' });
 
-    // IMPORTANT: paste your Web3Forms key here
+    // Paste your Web3Forms key here
     const ACCESS_KEY = '8d7e852f-03e4-420a-8630-86cee27a51fc';
 
     try {
       const payload = new FormData();
       payload.append('access_key', ACCESS_KEY);
 
-      // Anti-spam honeypot (Web3Forms recommends)
+      // Anti-spam honeypot
       payload.append('botcheck', '');
 
       // Metadata
@@ -82,12 +82,12 @@ export default function Contact() {
 
       setStatus({
         state: 'success',
-        message: 'Thank you for reaching out. We will contact you soon to discuss your property care needs.',
+        message:
+          'Thank you for reaching out. We will contact you soon to discuss your property care needs.',
       });
 
       setFormData({ name: '', email: '', phone: '', propertyType: '', message: '' });
 
-      // Optional: auto-hide success after a few seconds
       setTimeout(() => setStatus({ state: 'idle' }), 5000);
     } catch (err) {
       setStatus({
@@ -98,6 +98,10 @@ export default function Contact() {
   };
 
   const isSubmitting = status.state === 'submitting';
+
+  // Brand colors (fallback-safe)
+  const SAND_GOLD = '#C9A24D';
+  const SAND_GOLD_HOVER = '#B8923F';
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -121,23 +125,17 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-bold text-navy mb-8 tracking-wide">
-                Get in Touch
-              </h2>
+              <h2 className="text-2xl font-bold text-navy mb-8 tracking-wide">Get in Touch</h2>
 
               {status.state === 'success' ? (
                 <div className="bg-green-50 border border-green-200 rounded p-6 text-center">
-                  <p className="text-sm font-light text-green-800">
-                    {status.message}
-                  </p>
+                  <p className="text-sm font-light text-green-800">{status.message}</p>
                 </div>
               ) : (
                 <>
                   {status.state === 'error' && (
                     <div className="bg-red-50 border border-red-200 rounded p-4 mb-6">
-                      <p className="text-sm font-light text-red-800">
-                        {status.message}
-                      </p>
+                      <p className="text-sm font-light text-red-800">{status.message}</p>
                     </div>
                   )}
 
@@ -153,9 +151,7 @@ export default function Contact() {
                     />
 
                     <div>
-                      <label className="block text-sm font-light text-navy mb-2">
-                        Name
-                      </label>
+                      <label className="block text-sm font-light text-navy mb-2">Name</label>
                       <input
                         type="text"
                         name="name"
@@ -168,9 +164,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-light text-navy mb-2">
-                        Email
-                      </label>
+                      <label className="block text-sm font-light text-navy mb-2">Email</label>
                       <input
                         type="email"
                         name="email"
@@ -183,9 +177,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-light text-navy mb-2">
-                        Phone
-                      </label>
+                      <label className="block text-sm font-light text-navy mb-2">Phone</label>
                       <input
                         type="tel"
                         name="phone"
@@ -215,9 +207,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-light text-navy mb-2">
-                        Message
-                      </label>
+                      <label className="block text-sm font-light text-navy mb-2">Message</label>
                       <textarea
                         name="message"
                         value={formData.message}
@@ -229,17 +219,28 @@ export default function Contact() {
                       />
                     </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className={`w-full px-6 py-3 text-sm font-light tracking-wide transition-colors
-                  ${loading
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#C9A24D] hover:bg-[#b8923f] text-white'
-                  }`}
->
-                  {loading ? 'Sending…' : 'Send Message'}
-                </button>
+                    {/* Button (Sand Gold) */}
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full px-6 py-3 text-sm font-light tracking-wide transition-colors"
+                      style={{
+                        backgroundColor: isSubmitting ? '#9CA3AF' : SAND_GOLD,
+                        color: '#FFFFFF',
+                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                        opacity: isSubmitting ? 0.85 : 1,
+                      }}
+                      onMouseEnter={(e) => {
+                        if (isSubmitting) return;
+                        (e.currentTarget as HTMLButtonElement).style.backgroundColor = SAND_GOLD_HOVER;
+                      }}
+                      onMouseLeave={(e) => {
+                        if (isSubmitting) return;
+                        (e.currentTarget as HTMLButtonElement).style.backgroundColor = SAND_GOLD;
+                      }}
+                    >
+                      {isSubmitting ? 'Sending…' : 'Send Message'}
+                    </button>
                   </form>
                 </>
               )}
@@ -256,9 +257,7 @@ export default function Contact() {
                 <div className="flex gap-4">
                   <Phone size={24} className="text-sand-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">
-                      Phone
-                    </h3>
+                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">Phone</h3>
                     <a
                       href="tel:+16626622243"
                       className="text-sm font-light text-gray-700 hover:text-sand-gold transition-colors"
@@ -272,9 +271,7 @@ export default function Contact() {
                 <div className="flex gap-4">
                   <MessageCircle size={24} className="text-sand-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">
-                      WhatsApp
-                    </h3>
+                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">WhatsApp</h3>
                     <a
                       href="https://wa.me/16626622243"
                       target="_blank"
@@ -290,9 +287,7 @@ export default function Contact() {
                 <div className="flex gap-4">
                   <Mail size={24} className="text-sand-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">
-                      Email
-                    </h3>
+                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">Email</h3>
                     <a
                       href="mailto:contact@jscleanteam.com"
                       className="text-sm font-light text-gray-700 hover:text-sand-gold transition-colors"
@@ -306,11 +301,10 @@ export default function Contact() {
                 <div className="flex gap-4">
                   <MapPin size={24} className="text-sand-gold flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">
-                      Location
-                    </h3>
+                    <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">Location</h3>
                     <p className="text-sm font-light text-gray-700">
-                      Santa Rosa Beach, FL<br />
+                      Santa Rosa Beach, FL
+                      <br />
                       Serving Emerald Coast & 30A
                     </p>
                   </div>
@@ -318,21 +312,20 @@ export default function Contact() {
 
                 {/* Service Area */}
                 <div className="border-t border-sand-gold pt-8 mt-8">
-                  <h3 className="text-sm font-bold text-navy mb-4 tracking-wide">
-                    Service Area
-                  </h3>
+                  <h3 className="text-sm font-bold text-navy mb-4 tracking-wide">Service Area</h3>
                   <p className="text-sm font-light text-gray-700 leading-relaxed">
-                    We serve Santa Rosa Beach, the Emerald Coast, 30A, and surrounding areas in Northwest Florida. Whether your property is a residential home, vacation rental, or commercial space, we are ready to discuss your property care needs.
+                    We serve Santa Rosa Beach, the Emerald Coast, 30A, and surrounding areas in Northwest
+                    Florida. Whether your property is a residential home, vacation rental, or commercial
+                    space, we are ready to discuss your property care needs.
                   </p>
                 </div>
 
                 {/* Response Time */}
                 <div className="bg-off-white p-6 border-l-4 border-sand-gold">
-                  <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">
-                    Response Time
-                  </h3>
+                  <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">Response Time</h3>
                   <p className="text-sm font-light text-gray-700">
-                    We typically respond to inquiries within 24 hours. For urgent matters, please call us directly.
+                    We typically respond to inquiries within 24 hours. For urgent matters, please call us
+                    directly.
                   </p>
                 </div>
               </div>
@@ -344,9 +337,7 @@ export default function Contact() {
       {/* Social Links Section */}
       <section className="py-20 bg-white border-t border-sand-gold">
         <div className="container text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-navy mb-6 tracking-wide">
-            Follow Us
-          </h2>
+          <h2 className="text-2xl font-bold text-navy mb-6 tracking-wide">Follow Us</h2>
           <p className="text-sm font-light text-gray-700 mb-8">
             Stay updated with our latest projects and property care insights.
           </p>
