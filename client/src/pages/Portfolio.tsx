@@ -17,7 +17,7 @@ export default function Portfolio() {
     {
       id: 2,
       title: 'Modern Kitchen',
-      category: 'Residential',
+      category: 'residential',
       image: '/images/portfolio-modern-kitchen.webp',
       location: 'Destin',
       description: 'A refined kitchen environment where cleanliness and organization support both comfort and functionality. Every detail is prepared with care and consistency.',
@@ -33,7 +33,7 @@ export default function Portfolio() {
     {
       id: 4,
       title: 'Living Room',
-      category: 'Residential',
+      category: 'residential',
       image: '/images/living-room.webp',
       location: 'Destin',
       description: 'The living room is prepared with absolute attention to cleanliness, organization, and presentation. Every detail contributes to a comfortable, balanced, and welcoming space..',
