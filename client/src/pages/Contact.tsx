@@ -354,7 +354,7 @@ export default function Contact() {
               @jscleanteam_
             </a>
             <a
-              href="https://facebook.com/jscleanteam"
+              href="https://facebook.com/profile.php?id=1000XXXXXXXXX"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm font-light text-navy hover:text-sand-gold transition-colors"
