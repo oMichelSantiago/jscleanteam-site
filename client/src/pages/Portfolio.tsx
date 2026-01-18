@@ -12,8 +12,7 @@ export default function Portfolio() {
       category: 'residential',
       image: '/images/portfolio-master-bedroom.webp',
       location: 'Destin',
-      description: 'A space designed to convey calm, cleanliness, and sophistication.
-The primary suite is prepared with absolute attention to detail, respecting both the environment and the standard of the residence.',
+      description: 'A space designed to convey calm, cleanliness, and sophistication. The primary suite is prepared with absolute attention to detail, respecting both the environment and the standard of the residence.',
     },
     {
       id: 2,
