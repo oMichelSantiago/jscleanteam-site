@@ -17,17 +17,17 @@ export default function Portfolio() {
     {
       id: 2,
       title: 'Modern Kitchen',
-      category: 'vacation-rental',
+      category: 'Residential',
       image: '/images/portfolio-modern-kitchen.webp',
-      location: 'Emerald Coast',
-      description: 'State-of-the-art kitchen with marble countertops and stainless steel appliances. Immaculate and operational.',
+      location: 'Destin',
+      description: 'A refined kitchen environment where cleanliness and organization support both comfort and functionality. Every detail is prepared with care and consistency.',
     },
     {
       id: 3,
       title: 'Spa Bathroom',
       category: 'residential',
       image: '/images/portfolio-bathroom-spa.webp',
-      location: 'Northwest Florida',
+      location: 'Destin',
       description: 'Luxurious spa-like bathroom with marble surfaces and premium fixtures. Serene and perfectly maintained.',
     },
     {
