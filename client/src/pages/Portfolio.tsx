@@ -24,11 +24,11 @@ export default function Portfolio() {
     },
     {
       id: 3,
-      title: 'Spa Bathroom',
+      title: 'Luxury Bathroom',
       category: 'residential',
       image: '/images/portfolio-bathroom-spa.webp',
       location: 'Destin',
-      description: 'Luxurious spa-like bathroom with marble surfaces and premium fixtures. Serene and perfectly maintained.',
+      description: 'A bathroom carefully prepared to provide a clean, organized, and welcoming experience. Meticulous attention to detail reflects the level of care applied to every space within the residence.',
     },
     {
       id: 4,
