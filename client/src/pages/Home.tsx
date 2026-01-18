@@ -6,15 +6,15 @@ export default function Home() {
   const services = [
     {
       title: 'Residential Care',
-      description: 'Comprehensive property maintenance for luxury homes with attention to detail and consistency.',
+      description: 'Premium care for homes that are lived in. We focus on cleanliness, organization, and respectful routine—ensuring your home remains comfortable, orderly, and consistently maintained.',
     },
     {
       title: 'Vacation Rental Turnover',
-      description: 'Guest-ready preparation between bookings. Operational consistency for property managers.',
+      description: 'Reliable, guest-ready preparation between bookings. We deliver consistent turnover execution, supporting smooth operations and clear coordination with property managers',
     },
     {
       title: 'Post-Construction Clean',
-      description: 'High-standard cleanup after renovations. Presentation-ready properties.',
+      description: 'High-standard cleanup after renovations or construction. We remove dust and residue with careful attention to surfaces and finishes—delivering a polished, move-in ready result.',
     },
   ];
 
@@ -27,12 +27,12 @@ export default function Home() {
     {
       image: '/images/portfolio-modern-kitchen.webp',
       title: 'Modern Kitchen',
-      location: 'Emerald Coast',
+      location: 'Destin',
     },
     {
       image: '/images/portfolio-bathroom-spa.webp',
       title: 'Spa Bathroom',
-      location: 'Northwest Florida',
+      location: 'Destin',
     },
   ];
 
@@ -54,10 +54,10 @@ export default function Home() {
         <div className="relative z-10 container text-center text-white max-w-3xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-bold tracking-widest mb-6 leading-tight">
             Operational Consistency.<br />
-            Guest-Ready Presentation.
+            Exceptional Home Care.
           </h1>
           <p className="text-lg font-light mb-8 max-w-2xl mx-auto">
-            Premium property care for residential and vacation properties in Northwest Florida.
+            Premium, consistent care for high-standard residences and vacation properties across Northwest Florida.
           </p>
           <a
             href="/contact"
@@ -72,7 +72,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container max-w-3xl mx-auto text-center">
           <p className="text-lg font-light text-navy leading-relaxed">
-            JS Clean Team is a <span className="font-semibold">Premium Property Care Partner</span> focused on high standards, consistency, and presentation for residential and vacation properties in Northwest Florida. We protect your assets with institutional-grade service and attention to detail.
+            JS Clean Team is a <span className="font-semibold">Premium Property Care Partner</span> focused on consistency, presentation, and long-term care for both residential homes and vacation properties across Northwest Florida. We combine structured processes with attentive, detail-driven service in every home we maintain.
           </p>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-4 tracking-wide text-white" style={{color: 'oklch(0.373 0.034 259.733002)'}}>Consistency</h3>
               <p className="text-sm font-light text-gray-300" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                Every property receives the same high standard of care, every time.
+                Reliable care delivered with the same standard, every visit. Whether for daily living or guest turnover, our process ensures predictable, high-quality results.
               </p>
             </div>
 
@@ -165,7 +165,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-4 tracking-wide text-white" style={{color: 'oklch(0.373 0.034 259.733002)'}}>Detail</h3>
               <p className="text-sm font-light text-gray-300" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                We focus on the details that matter. Nothing is overlooked.
+                Attention to details that shape the experience of the home. We address the small elements that preserve order, comfort, and overall presentation.
               </p>
             </div>
 
@@ -175,7 +175,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-4 tracking-wide text-white" style={{color: 'oklch(0.373 0.034 259.733002)'}}>Trust</h3>
               <p className="text-sm font-light text-gray-300" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                Your property is an investment. We protect it like our own.
+                Care built on respect, discretion, and reliability. We work in your home with professionalism and responsibility—earning trust over time, not through promises.
               </p>
             </div>
           </div>
