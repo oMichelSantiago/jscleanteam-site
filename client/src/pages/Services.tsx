@@ -6,7 +6,8 @@ export default function Services() {
   const services = [
     {
       title: 'Residential Care',
-      description: 'Comprehensive property maintenance for luxury homes. We provide regular cleaning, deep cleaning, and specialized services tailored to your property\'s needs. Our focus is on maintaining the presentation and condition of your investment.',
+      description:
+        'Premium home care for residents and second homes. We provide ongoing cleaning, deep cleaning, and specialized detail work with a focus on trust, discretion, and consistent comfort—so your home stays organized, welcoming, and carefully maintained.',
       features: [
         'Regular maintenance cleaning',
         'Deep cleaning services',
@@ -16,7 +17,8 @@ export default function Services() {
     },
     {
       title: 'Vacation Rental Turnover',
-      description: 'Guest-ready preparation between bookings. We ensure your property is immaculate and ready for every guest. Our operational consistency means your property managers can rely on us for every turnover.',
+      description:
+        'Guest-ready preparation between bookings. We ensure the home is immaculate, organized, and presented to a consistently high standard. Our reliability supports smooth turnovers and clear coordination with your property manager.',
       features: [
         'Between-guest turnover cleaning',
         'Guest-ready presentation',
@@ -26,7 +28,8 @@ export default function Services() {
     },
     {
       title: 'Post-Construction Clean',
-      description: 'High-standard cleanup after renovations and construction. We remove dust, debris, and construction residue to present your property in pristine condition.',
+      description:
+        'High-standard cleanup after renovations and construction. We remove dust, debris, and fine residue with careful attention to surfaces and finishes—delivering a polished, move-in ready result.',
       features: [
         'Dust and debris removal',
         'Final polish and detailing',
@@ -36,7 +39,8 @@ export default function Services() {
     },
     {
       title: 'Commercial Properties',
-      description: 'Professional care for commercial spaces. We understand the operational requirements of commercial properties and provide reliable, consistent service.',
+      description:
+        'Professional care for commercial spaces. We deliver reliable, consistent service tailored to operational needs—supporting a clean, orderly environment for teams and clients.',
       features: [
         'Office cleaning',
         'Common area maintenance',
@@ -50,17 +54,20 @@ export default function Services() {
     {
       number: '1',
       title: 'Assessment',
-      description: 'We evaluate your property and understand your specific care requirements and expectations.',
+      description:
+        'We evaluate your property and understand your specific care requirements and expectations.',
     },
     {
       number: '2',
       title: 'Customized Plan',
-      description: 'We develop a tailored care plan that aligns with your property\'s needs and your operational goals.',
+      description:
+        'We develop a tailored care plan aligned with your home’s needs, routines, and operational requirements.',
     },
     {
       number: '3',
       title: 'Consistent Execution',
-      description: 'Our team delivers reliable, high-standard service every time, maintaining your property\'s presentation.',
+      description:
+        'Our team delivers reliable, high-standard service every time—maintaining cleanliness, order, and a polished presentation.',
     },
   ];
 
@@ -76,6 +83,11 @@ export default function Services() {
           </h1>
           <p className="text-lg font-light text-gray-700">
             We provide comprehensive property care services designed for high-value residential and vacation properties in Northwest Florida.
+          </p>
+
+          {/* Bridge paragraph: homeowners + property managers */}
+          <p className="text-sm font-light text-gray-700 mt-6 leading-relaxed">
+            For homeowners, this means respectful, routine care that keeps your home comfortable and organized. For vacation rentals and property managers, it means reliable turnover execution, clear coordination, and a consistent standard—every time.
           </p>
         </div>
       </section>
@@ -115,10 +127,10 @@ export default function Services() {
 
           <div className="bg-off-white p-12 border-l-4 border-sand-gold mb-12">
             <p className="text-sm font-light text-gray-700 leading-relaxed mb-6">
-              Our proprietary 120-point inspection and care standard ensures every property receives institutional-grade service. This comprehensive checklist covers every detail, from surfaces and fixtures to presentation and guest-readiness.
+              Our proprietary 120-point inspection and care standard ensures every property receives a consistent, high-standard service. This comprehensive checklist covers key details across surfaces, fixtures, and overall presentation—supporting both everyday comfort and guest-ready readiness.
             </p>
             <p className="text-sm font-light text-gray-700 leading-relaxed">
-              This is not operational clutter—it is rigor. Every point matters. Every property receives the same high standard, every time.
+              This is not operational clutter—it is rigor. Every point matters. Every home receives the same standard of care, every time.
             </p>
           </div>
 
@@ -143,36 +155,44 @@ export default function Services() {
       {/* Why Choose Us */}
       <section className="py-20 bg-navy text-white">
         <div className="container max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 tracking-widest" style={{color: '#002147'}}>
+          <h2 className="text-4xl font-bold text-center mb-12 tracking-widest" style={{ color: '#002147' }}>
             Why Choose JS Clean Team
           </h2>
 
           <div className="space-y-8">
             <div className="border-b border-sand-gold/30 pb-8">
-              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{color: '#002147', fontWeight: '600'}}>Institutional Mindset</h3>
-              <p className="text-sm font-light text-gray-300" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                We approach property care with the rigor of institutional management. Your property is an investment, and we protect it accordingly.
+              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{ color: '#002147', fontWeight: '600' }}>
+                Institutional Mindset
+              </h3>
+              <p className="text-sm font-light text-gray-300" style={{ color: 'oklch(0.373 0.034 259.733002)' }}>
+                We approach property care with disciplined standards and clear processes—protecting the condition of the home while maintaining a consistently polished result.
               </p>
             </div>
 
             <div className="border-b border-sand-gold/30 pb-8">
-              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{color: '#002147', fontWeight: '600'}}>Operational Reliability</h3>
-              <p className="text-sm font-light text-gray-300" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                Property managers and owners depend on us for consistent, predictable service. We deliver every time.
+              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{ color: '#002147', fontWeight: '600' }}>
+                Operational Reliability
+              </h3>
+              <p className="text-sm font-light text-gray-300" style={{ color: 'oklch(0.373 0.034 259.733002)' }}>
+                Homeowners and property managers depend on us for consistent, predictable service—delivered with discretion, accountability, and attention to detail.
               </p>
             </div>
 
             <div className="border-b border-sand-gold/30 pb-8">
-              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{color: '#002147', fontWeight: '600'}}>Detail-Oriented</h3>
-              <p className="text-sm font-light text-gray-300" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                We understand that the details matter. Small oversights become big problems. We don't let them happen.
+              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{ color: '#002147', fontWeight: '600' }}>
+                Detail-Oriented
+              </h3>
+              <p className="text-sm font-light text-gray-300" style={{ color: 'oklch(0.373 0.034 259.733002)' }}>
+                We understand that details shape the experience. We address small oversights before they become visible problems—so the home consistently feels clean, orderly, and cared for.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{color: '#002147', fontWeight: '600'}}>Local Expertise</h3>
-              <p className="text-sm font-light text-gray-300" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                Based in Santa Rosa Beach, we understand the Emerald Coast market and the unique needs of 30A properties.
+              <h3 className="text-xl font-bold mb-3 tracking-wide" style={{ color: '#002147', fontWeight: '600' }}>
+                Local Expertise
+              </h3>
+              <p className="text-sm font-light text-gray-300" style={{ color: 'oklch(0.373 0.034 259.733002)' }}>
+                Based in Santa Rosa Beach, we understand the Emerald Coast market and the expectations of high-standard residences across 30A and surrounding areas.
               </p>
             </div>
           </div>
@@ -186,11 +206,12 @@ export default function Services() {
             Ready to Partner With Us?
           </h2>
           <p className="text-sm font-light text-gray-700 mb-8">
-            Let's discuss how we can provide operational consistency and premium care for your property.
+            Let&apos;s discuss how we can provide consistent, respectful care—whether for your primary residence, a second home, or a vacation rental.
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 bg-navy text-white text-sm font-light tracking-wide hover:bg-opacity-90 transition-colors" style={{color: '#002147', fontWeight: '700'}}
+            className="inline-block px-8 py-3 bg-navy text-white text-sm font-light tracking-wide hover:bg-opacity-90 transition-colors"
+            style={{ color: '#002147', fontWeight: '700' }}
           >
             Schedule a Consultation
           </a>
