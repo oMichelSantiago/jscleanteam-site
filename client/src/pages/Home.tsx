@@ -22,7 +22,7 @@ export default function Home() {
     {
       image: '/images/portfolio-master-bedroom.webp',
       title: 'Master Bedroom',
-      location: 'Santa Rosa Beach',
+      location: 'Destin',
     },
     {
       image: '/images/portfolio-modern-kitchen.webp',
