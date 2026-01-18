@@ -11,8 +11,9 @@ export default function Portfolio() {
       title: 'Master Bedroom Suite',
       category: 'residential',
       image: '/images/portfolio-master-bedroom.webp',
-      location: 'Santa Rosa Beach',
-      description: 'Luxury master bedroom with ocean views. Symmetrical layout, premium linens, and guest-ready presentation.',
+      location: 'Destin',
+      description: 'A space designed to convey calm, cleanliness, and sophistication.
+The primary suite is prepared with absolute attention to detail, respecting both the environment and the standard of the residence.',
     },
     {
       id: 2,
