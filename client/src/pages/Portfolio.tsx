@@ -33,10 +33,10 @@ export default function Portfolio() {
     {
       id: 4,
       title: 'Living Room',
-      category: 'vacation-rental',
-      image: '/images/hero-luxury-living-room.webp',
-      location: 'Santa Rosa Beach',
-      description: 'Elegant living room with ocean views. Bright, airy, and guest-ready for every booking.',
+      category: 'Residential',
+      image: '/images/living-room.webp',
+      location: 'Destin',
+      description: 'The living room is prepared with absolute attention to cleanliness, organization, and presentation. Every detail contributes to a comfortable, balanced, and welcoming space..',
     },
   ];
 
