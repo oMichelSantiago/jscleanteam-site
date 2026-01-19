@@ -12,7 +12,8 @@ export default function Portfolio() {
       category: 'residential',
       image: '/images/portfolio-master-bedroom.webp',
       location: 'Destin',
-      description: 'A space designed to convey calm, cleanliness, and sophistication. The primary suite is prepared with absolute attention to detail, respecting both the environment and the standard of the residence.',
+      description:
+        'A space designed to convey calm, cleanliness, and sophistication. The primary suite is prepared with absolute attention to detail, respecting both the environment and the standard of the residence.',
     },
     {
       id: 2,
@@ -20,7 +21,8 @@ export default function Portfolio() {
       category: 'residential',
       image: '/images/portfolio-modern-kitchen.webp',
       location: 'Destin',
-      description: 'A refined kitchen environment where cleanliness and organization support both comfort and functionality. Every detail is prepared with care and consistency.',
+      description:
+        'A refined kitchen environment where cleanliness and organization support both comfort and functionality. Every detail is prepared with care and consistency.',
     },
     {
       id: 3,
@@ -28,7 +30,8 @@ export default function Portfolio() {
       category: 'residential',
       image: '/images/portfolio-bathroom-spa.webp',
       location: 'Destin',
-      description: 'A bathroom carefully prepared to provide a clean, organized, and welcoming experience. Meticulous attention to detail reflects the level of care applied to every space within the residence.',
+      description:
+        'A bathroom carefully prepared to provide a clean, organized, and welcoming experience. Meticulous attention to detail reflects the level of care applied to every space within the residence.',
     },
     {
       id: 4,
@@ -36,7 +39,46 @@ export default function Portfolio() {
       category: 'residential',
       image: '/images/living-room.webp',
       location: 'Destin',
-      description: 'The living room is prepared with absolute attention to cleanliness, organization, and presentation. Every detail contributes to a comfortable, balanced, and welcoming space..',
+      description:
+        'The living room is prepared with absolute attention to cleanliness, organization, and presentation. Every detail contributes to a comfortable, balanced, and welcoming space.',
+    },
+
+    // Vacation Rentals
+    {
+      id: 5,
+      title: 'Vacation Rental Bedroom',
+      category: 'vacation-rental',
+      image: '/images/vacation-rental-bedroom.webp',
+      location: '30A · Santa Rosa Beach',
+      description:
+        'A guest-ready bedroom prepared for short-term turnover, with a focus on presentation consistency, hygiene standards, and detailed readiness checks aligned with property management expectations.',
+    },
+    {
+      id: 6,
+      title: 'Vacation Rental Kitchen',
+      category: 'vacation-rental',
+      image: '/images/vacation-rental-kitchen.webp',
+      location: 'Miramar Beach',
+      description:
+        'A kitchen environment maintained for high-frequency use, prepared with structured cleaning routines and inspection discipline to support reliable turnover performance across guest transitions.',
+    },
+    {
+      id: 7,
+      title: 'Vacation Rental Bathroom',
+      category: 'vacation-rental',
+      image: '/images/vacation-rental-bathroom.webp',
+      location: '30A · Santa Rosa Beach',
+      description:
+        'A bathroom prepared to a guest-ready standard, with careful attention to sanitization, detailing, and inspection protocols that support consistent reviews and operational trust.',
+    },
+    {
+      id: 8,
+      title: 'Vacation Rental Living Area',
+      category: 'vacation-rental',
+      image: '/images/vacation-rental-living-area.webp',
+      location: '30A · Santa Rosa Beach',
+      description:
+        'A living area maintained for short-term occupancy, focused on presentation consistency, reset quality, and readiness standards that protect both guest experience and property reputation.',
     },
   ];
 
@@ -46,9 +88,10 @@ export default function Portfolio() {
     { id: 'vacation-rental', label: 'Vacation Rental' },
   ];
 
-  const filteredItems = filter === 'all' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === filter);
+  const filteredItems =
+    filter === 'all'
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === filter);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -128,15 +171,16 @@ export default function Portfolio() {
       {/* CTA Section */}
       <section className="py-20 bg-navy text-white border-t border-sand-gold">
         <div className="container text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 tracking-widest" style={{color: '#002147'}}>
+          <h2 className="text-3xl font-bold mb-6 tracking-widest">
             See Your Property at Its Best
           </h2>
-          <p className="text-sm font-light text-gray-300 mb-8" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-            Let us bring the same attention to detail and premium care to your property.
+          <p className="text-sm font-light text-gray-300 mb-8">
+            Let us bring the same attention to detail and premium care to your
+            property.
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 border border-sand-gold text-white text-sm font-light tracking-wide hover:bg-sand-gold hover:text-navy transition-colors" style={{color: '#002147', fontWeight: '600'}}
+            className="inline-block px-8 py-3 border border-sand-gold text-white text-sm font-light tracking-wide hover:bg-sand-gold hover:text-navy transition-colors"
           >
             Request Availability
           </a>
