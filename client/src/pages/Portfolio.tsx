@@ -171,16 +171,15 @@ export default function Portfolio() {
       {/* CTA Section */}
       <section className="py-20 bg-navy text-white border-t border-sand-gold">
         <div className="container text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 tracking-widest">
+          <h2 className="text-3xl font-bold mb-6 tracking-widest" style={{color: '#002147'}}>
             See Your Property at Its Best
           </h2>
-          <p className="text-sm font-light text-gray-300 mb-8">
-            Let us bring the same attention to detail and premium care to your
-            property.
+          <p className="text-sm font-light text-gray-300 mb-8" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
+            Let us bring the same attention to detail and premium care to your property.
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 border border-sand-gold text-navy text-sm font-light tracking-wide bg-white hover:bg-sand-gold hover:text-navy transition-colors"
+            className="inline-block px-8 py-3 border border-sand-gold text-white text-sm font-light tracking-wide hover:bg-sand-gold hover:text-navy transition-colors" style={{color: '#002147', fontWeight: '600'}}
           >
             Request Availability
           </a>
