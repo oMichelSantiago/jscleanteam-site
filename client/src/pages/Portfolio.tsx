@@ -46,39 +46,39 @@ export default function Portfolio() {
     // Vacation Rentals
     {
       id: 5,
-      title: 'Vacation Rental Bedroom',
+      title: 'Primary Bedroom — Short-Term Rental',
       category: 'vacation-rental',
       image: '/images/vacation-rental-bedroom.webp',
       location: '30A · Santa Rosa Beach',
       description:
-        'A guest-ready bedroom prepared for short-term turnover, with a focus on presentation consistency, hygiene standards, and detailed readiness checks aligned with property management expectations.',
+        'The space where guests rest demands quiet, precision, and continuous care. Every detail is maintained so comfort and presentation remain intact, even under high turnover.',
     },
     {
       id: 6,
-      title: 'Vacation Rental Kitchen',
+      title: 'Kitchen — Turnover-Ready Environmen',
       category: 'vacation-rental',
       image: '/images/vacation-rental-kitchen.webp',
       location: 'Miramar Beach',
       description:
-        'A kitchen environment maintained for high-frequency use, prepared with structured cleaning routines and inspection discipline to support reliable turnover performance across guest transitions.',
+        'The functional heart of the property, prepared for frequent use without losing order. Cleanliness, organization, and flow designed for smooth transitions between stays.',
     },
     {
       id: 7,
-      title: 'Vacation Rental Bathroom',
+      title: 'Bathroom — Inspection-Critical Area',
       category: 'vacation-rental',
       image: '/images/vacation-rental-bathroom.webp',
       location: '30A · Santa Rosa Beach',
       description:
-        'A bathroom prepared to a guest-ready standard, with careful attention to sanitization, detailing, and inspection protocols that support consistent reviews and operational trust.',
+        'This is where trust is built through details. Surfaces, finishes, and presentation handled with absolute rigor at every occupancy cycle.',
     },
     {
       id: 8,
-      title: 'Vacation Rental Living Area',
+      title: 'Living Area — Shared Space Management',
       category: 'vacation-rental',
       image: '/images/vacation-rental-living-area.webp',
       location: '30A · Santa Rosa Beach',
       description:
-        'A living area maintained for short-term occupancy, focused on presentation consistency, reset quality, and readiness standards that protect both guest experience and property reputation.',
+        'The environment that shapes the first impression. Maintained to preserve visual balance, shared comfort, and a consistent sense of care.',
     },
   ];
 
@@ -180,7 +180,7 @@ export default function Portfolio() {
           </p>
           <a
             href="/contact"
-            className="inline-block px-8 py-3 border border-sand-gold text-white text-sm font-light tracking-wide hover:bg-sand-gold hover:text-navy transition-colors"
+            className="inline-block px-8 py-3 border border-sand-gold text-navy text-sm font-light tracking-wide bg-white hover:bg-sand-gold hover:text-navy transition-colors"
           >
             Request Availability
           </a>
