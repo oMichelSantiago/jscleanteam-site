@@ -70,8 +70,8 @@ export default function Footer() {
             <div className="space-y-4">
               <div>
                 <p className="text-xs text-gray-400 font-light mb-1" style={{color: 'oklch(0.373 0.034 259.733002)', fontWeight: '600'}}>Phone</p>
-                <a href="tel:+16626622243" className="text-sm font-light text-gray-300 hover:text-sand-gold transition-colors" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
-                  +1 (662) 662-2243
+                <a href="tel:+13216622243" className="text-sm font-light text-gray-300 hover:text-sand-gold transition-colors" style={{color: 'oklch(0.373 0.034 259.733002)'}}>
+                  +1 (321) 662-2243
                 </a>
               </div>
               <div>
