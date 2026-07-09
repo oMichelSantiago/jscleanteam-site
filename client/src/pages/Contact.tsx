@@ -8,6 +8,10 @@ type FormState = {
   email: string;
   phone: string;
   propertyType: string;
+  bedrooms: string;
+  squareFootage: string;
+  frequency: string;
+  preferredContact: string;
   message: string;
 };
 
@@ -23,6 +27,10 @@ export default function Contact() {
     email: '',
     phone: '',
     propertyType: '',
+    bedrooms: '',
+    squareFootage: '',
+    frequency: '',
+    preferredContact: '',
     message: '',
   });
 
@@ -63,6 +71,10 @@ export default function Contact() {
       payload.append('email', formData.email);
       payload.append('phone', formData.phone);
       payload.append('propertyType', formData.propertyType);
+      payload.append('bedrooms', formData.bedrooms);
+      payload.append('squareFootage', formData.squareFootage);
+      payload.append('frequency', formData.frequency);
+      payload.append('preferredContact', formData.preferredContact);
       payload.append('message', formData.message);
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -86,7 +98,17 @@ export default function Contact() {
           'Thank you for reaching out. We will contact you soon to discuss your property care needs.',
       });
 
-      setFormData({ name: '', email: '', phone: '', propertyType: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        propertyType: '',
+        bedrooms: '',
+        squareFootage: '',
+        frequency: '',
+        preferredContact: '',
+        message: '',
+      });
 
       setTimeout(() => setStatus({ state: 'idle' }), 5000);
     } catch (err) {
@@ -207,6 +229,79 @@ export default function Contact() {
                     </div>
 
                     <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Bedrooms
+                      </label>
+                      <select
+                        name="bedrooms"
+                        value={formData.bedrooms}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                      >
+                        <option value="">Select bedrooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Approximate Square Footage
+                      </label>
+                      <select
+                        name="squareFootage"
+                        value={formData.squareFootage}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                      >
+                        <option value="">Select square footage</option>
+                        <option value="under-1500">Under 1,500 sqft</option>
+                        <option value="1500-3000">1,500 – 3,000 sqft</option>
+                        <option value="3000-5000">3,000 – 5,000 sqft</option>
+                        <option value="5000-plus">5,000+ sqft</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Service Frequency Desired
+                      </label>
+                      <select
+                        name="frequency"
+                        value={formData.frequency}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                      >
+                        <option value="">Select frequency</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="bi-weekly">Bi-weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="one-time">One-time</option>
+                        <option value="not-sure">Not sure yet</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-light text-navy mb-2">
+                        Preferred Contact Method
+                      </label>
+                      <select
+                        name="preferredContact"
+                        value={formData.preferredContact}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-border bg-white text-navy text-sm font-light focus:outline-none focus:border-sand-gold transition-colors"
+                      >
+                        <option value="">Select contact method</option>
+                        <option value="text-whatsapp">Text / WhatsApp</option>
+                        <option value="phone-call">Phone Call</option>
+                        <option value="email">Email</option>
+                      </select>
+                    </div>
+
+                    <div>
                       <label className="block text-sm font-light text-navy mb-2">Message</label>
                       <textarea
                         name="message"
@@ -218,6 +313,10 @@ export default function Contact() {
                         placeholder="Tell us about your property care needs..."
                       />
                     </div>
+
+                    <p className="text-xs font-light text-gray-500 italic">
+                      We'll follow up with a custom quote based on your property. We don't provide instant online pricing.
+                    </p>
 
                   <button
   type="submit"
