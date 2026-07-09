@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Star } from 'lucide-react';
 
 export default function Home() {
   const services = [
@@ -33,6 +33,29 @@ export default function Home() {
       image: '/images/portfolio-bathroom-spa.webp',
       title: 'Spa Bathroom',
       location: 'Destin',
+    },
+  ];
+
+  const testimonials = [
+    {
+      text: "We are thrilled with the very detailed and thorough job that you, Stephany and Ju did with our home. We look forward to seeing you again in 2 weeks. Thank you!",
+      name: 'S. Cowan',
+      location: 'Santa Rosa Beach, FL',
+    },
+    {
+      text: "We are so happy to have found you both! Thank you for taking such good care of us and our new home.",
+      name: 'N. Ransom',
+      location: 'Santa Rosa Beach, FL',
+    },
+    {
+      text: "He said everything looks AMAZING. You guys even did small touches we didn't ask to make it better!! We're so thankful for you guys.",
+      name: 'A. Clark',
+      location: 'Miramar Beach, FL',
+    },
+    {
+      text: "Everything looks wonderful and you guys are so fast! Thank you so so much.",
+      name: 'K. DeMarchis',
+      location: 'Destin, FL',
     },
   ];
 
@@ -135,6 +158,62 @@ export default function Home() {
               className="inline-block px-8 py-3 border border-sand-gold text-navy text-sm font-light tracking-wide hover:bg-sand-gold hover:text-white transition-colors"
             >
               View Portfolio
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Reviews Section */}
+      <section className="py-20 bg-off-white">
+        <div className="container">
+          <h2 className="text-4xl font-bold text-navy text-center mb-4 tracking-widest">
+            Trusted by Our Clients
+          </h2>
+          <div className="flex items-center justify-center gap-2 mb-16">
+            <div className="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={20} className="fill-sand-gold text-sand-gold" />
+              ))}
+            </div>
+            <span className="text-sm font-light text-gray-700">
+              5.0 · 11 Google Reviews
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {testimonials.map((t, index) => (
+              <div key={index} className="bg-white p-8 border-l-2 border-sand-gold">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className="fill-sand-gold text-sand-gold" />
+                  ))}
+                </div>
+                <p className="text-sm font-light text-gray-700 leading-relaxed mb-4">
+                  "{t.text}"
+                </p>
+                <p className="text-sm font-bold text-navy tracking-wide">
+                  {t.name} <span className="font-light text-gray-500">— {t.location}</span>
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a
+              href="https://share.google/DoTW9GPNO9ijxB3z0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3 border border-sand-gold text-navy text-sm font-light tracking-wide hover:bg-sand-gold hover:text-white transition-colors"
+            >
+              See All Reviews on Google
+            </a>
+            <a
+              href="https://g.page/r/CdfO7UP8WWpEEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3 bg-navy text-white text-sm font-light tracking-wide hover:bg-opacity-90 transition-colors"
+            >
+              Leave a Review
             </a>
           </div>
         </div>
