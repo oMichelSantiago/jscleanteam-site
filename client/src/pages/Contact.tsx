@@ -326,8 +326,7 @@ export default function Contact() {
                 <div className="bg-off-white p-6 border-l-4 border-sand-gold">
                   <h3 className="text-sm font-bold text-navy mb-2 tracking-wide">Response Time</h3>
                   <p className="text-sm font-light text-gray-700">
-                    We typically respond to inquiries within 24 hours. For urgent matters, please call us
-                    directly.
+                    We typically respond within a few hours. For faster contact, feel free to text or WhatsApp us directly.
                   </p>
                 </div>
               </div>
