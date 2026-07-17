@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="JS Clean Team — Premium property care for residential homes and vacation rentals across Northwest Florida's Emerald Coast. 5.0 stars · 11 Google Reviews." />
+  <meta name="keywords" content="cleaning service Santa Rosa Beach, vacation rental cleaning 30A, property care Emerald Coast, residential cleaning Destin, turnover cleaning Florida" />
+  <title>JS Clean Team — Premium Property Care | Santa Rosa Beach, FL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ================================================
+       DESIGN TOKENS
+    ================================================ */
+    :root {
+      --navy:       #1F2A44;
+      --navy-dark:  #162140;
+      --navy-light: #253354;
+      --offwhite:   #F7F7F5;
+      --gray:       #4A4A4A;
+      --gray-light: #7A7A7A;
+      --gold:       #B8A882;
+      --gold-light: #D4C9A8;
+      --white:      #FFFFFF;
+
+      --font: 'Libre Baskerville', Georgia, serif;
+
+      --sp-xs:  8px;
+      --sp-sm:  16px;
+      --sp-md:  24px;
+      --sp-lg:  32px;
+      --sp-xl:  48px;
+      --sp-2xl: 64px;
+      --sp-3xl: 96px;
+
+      --max-w: 1200px;
+      --nav-h: 76px;
+
+      --transition: 0.25s ease;
+    }
+
+    /* ================================================
+       RESET
+    ================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font);
+      background: var(--offwhite);
+      color: var(--gray);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    ul { list-style: none; }
+    button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+
+    /* ================================================
+       LAYOUT UTILITIES
+    ================================================ */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-2xl);
+    }
+    .section { padding: var(--sp-3xl) 0; }
+    .section--navy     { background: var(--navy); }
+    .section--white    { background: var(--white); }
+    .section--offwhite { background: var(--offwhite); }
+
+    /* ================================================
+       TYPE UTILITIES
+    ================================================ */
+    .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--sp-sm);
+    }
+    .gold-rule {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: var(--sp-md);
+    }
+    .h1 {
+      font-size: clamp(38px, 5.5vw, 76px);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--white);
+    }
+    .h2 {
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 400;
+      line-height: 1.18;
+      color: var(--navy);
+    }
+    .h2--white { color: var(--white); }
+    .h3 {
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+    .body-copy {
+      font-size: 16px;
+      line-height: 1.72;
+      color: var(--gray);
+    }
+    .body-copy--white { color: rgba(255,255,255,0.7); }
+    .body-copy--sm {
+      font-size: 14px;
+      line-height: 1.68;
+    }
+
+    /* ================================================
+       BUTTONS
+    ================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 15px 34px;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .btn-primary:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.45);
+    }
+    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .btn-outline-gold:hover { background: var(--gold); color: var(--navy); }
+
+    /* ================================================
+       NAVIGATION
+    ================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 900;
+      background: rgba(31,42,68,0.0);
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav.scrolled {
+      background: rgba(22,33,64,0.97);
+      box-shadow: 0 1px 0 rgba(184,168,130,0.18);
+      backdrop-filter: blur(8px);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-2xl);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .nav-logo-lockup {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo-js {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo-sub {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .nav-sep {
+      width: 1px;
+      height: 30px;
+      background: rgba(184,168,130,0.35);
+    }
+    .nav-company {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-lg);
+    }
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(184,168,130,0.45);
+      padding: 9px 22px;
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+    .nav-cta:hover { border-color: var(--gold); color: var(--white); background: rgba(184,168,130,0.1); }
+
+    /* Mobile nav */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--white);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none;
+      position: absolute;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: rgba(22,33,64,0.98);
+      border-top: 1px solid rgba(184,168,130,0.15);
+      padding: var(--sp-sm) var(--sp-lg) var(--sp-lg);
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile a {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color var(--transition);
+    }
+    .nav-mobile a:hover { color: var(--gold); }
+    .nav-mobile a.mobile-cta {
+      color: var(--gold);
+      border-bottom: none;
+      padding-top: var(--sp-md);
+    }
+
+    /* ================================================
+       HERO
+    ================================================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-img img {
+      object-position: center 40%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        165deg,
+        rgba(22,33,64,0.25) 0%,
+        rgba(22,33,64,0.55) 45%,
+        rgba(22,33,64,0.92) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding-bottom: var(--sp-3xl);
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      margin-bottom: var(--sp-md);
+    }
+    .hero-eyebrow-line {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-eyebrow-text {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-title {
+      margin-bottom: var(--sp-md);
+      max-width: 760px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-subtitle {
+      font-size: 17px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.62);
+      max-width: 500px;
+      margin-bottom: var(--sp-xl);
+    }
+    .hero-actions {
+      display: flex;
+      gap: var(--sp-sm);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    /* Rating badge — desktop only */
+    .hero-rating {
+      position: absolute;
+      right: var(--sp-2xl);
+      bottom: var(--sp-3xl);
+      z-index: 2;
+      border: 1px solid rgba(184,168,130,0.3);
+      padding: var(--sp-md) var(--sp-sm);
+      min-width: 110px;
+      text-align: center;
+      background: rgba(22,33,64,0.4);
+      backdrop-filter: blur(6px);
+    }
+    .hero-rating-stars {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 6px;
+    }
+    .hero-rating-num {
+      font-size: 36px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .hero-rating-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: var(--sp-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(184,168,130,0.7), transparent);
+      animation: pulse-line 2.2s ease-in-out infinite;
+    }
+    .hero-scroll-text {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    @keyframes pulse-line {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+
+    /* ================================================
+       TRUST BAR
+    ================================================ */
+    .trustbar {
+      background: var(--white);
+      border-bottom: 1px solid rgba(31,42,68,0.07);
+      padding: 18px 0;
+    }
+    .trustbar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-xl);
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .trust-icon {
+      width: 17px;
+      height: 17px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .trust-text {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .trust-sep {
+      width: 1px;
+      height: 18px;
+      background: rgba(31,42,68,0.1);
+    }
+
+    /* ================================================
+       ABOUT
+    ================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3xl);
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img {
+      width: 100%;
+      height: 580px;
+    }
+    .about-img-border {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 160px;
+      height: 160px;
+      border: 2px solid var(--gold);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .about-text { }
+    .about-body { margin-bottom: var(--sp-md); }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-xs);
+      margin-top: var(--sp-xl);
+    }
+    .stat {
+      padding: var(--sp-md);
+      border-left: 3px solid var(--gold);
+      background: var(--offwhite);
+    }
+    .stat-num {
+      font-size: 30px;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+    }
+
+    /* ================================================
+       SERVICES
+    ================================================ */
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: var(--sp-2xl);
+      gap: var(--sp-lg);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--white);
+      padding: var(--sp-lg) var(--sp-md);
+      border-top: 3px solid transparent;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .service-card:hover {
+      border-top-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(31,42,68,0.08);
+    }
+    .service-num {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      margin-bottom: var(--sp-md);
+    }
+    .service-title {
+      margin-bottom: var(--sp-sm);
+    }
+    .service-body { }
+
+    /* ================================================
+       PORTFOLIO
+    ================================================ */
+    .portfolio-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3xl);
+      align-items: end;
+      margin-bottom: var(--sp-2xl);
+    }
+    /* Editorial grid — asymmetric */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 340px 280px;
+      gap: 4px;
+    }
+    .p-item { overflow: hidden; }
+    .p-item img { transition: transform 0.6s ease; }
+    .p-item:hover img { transform: scale(1.05); }
+
+    .p-hero   { grid-column: 1 / 8;  grid-row: 1 / 2; }
+    .p-top-r  { grid-column: 8 / 13; grid-row: 1 / 2; }
+    .p-bot-l  { grid-column: 1 / 5;  grid-row: 2 / 3; }
+    .p-bot-m  { grid-column: 5 / 9;  grid-row: 2 / 3; }
+    .p-bot-r  { grid-column: 9 / 13; grid-row: 2 / 3; }
+
+    .portfolio-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--sp-lg);
+      padding-top: var(--sp-md);
+      border-top: 1px solid rgba(31,42,68,0.08);
+    }
+    .portfolio-coverage {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+    }
+
+    /* ================================================
+       REVIEWS
+    ================================================ */
+    .reviews-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--sp-2xl);
+      gap: var(--sp-lg);
+    }
+    .reviews-score-block {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+    }
+    .reviews-big-num {
+      font-size: 72px;
+      color: var(--white);
+      line-height: 1;
+    }
+    .reviews-score-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .reviews-stars {
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 4px;
+    }
+    .reviews-count {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-xs);
+      margin-bottom: var(--sp-xl);
+    }
+    .review-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,168,130,0.18);
+      padding: var(--sp-lg) var(--sp-md);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .review-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(184,168,130,0.35);
+    }
+    .review-stars {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin-bottom: var(--sp-sm);
+    }
+    .review-text {
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.68;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: var(--sp-md);
+    }
+    .review-author {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .reviews-actions {
+      display: flex;
+      gap: var(--sp-sm);
+      justify-content: center;
+    }
+
+    /* ================================================
+       WHY JS CLEAN TEAM
+    ================================================ */
+    .why-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3xl);
+      align-items: start;
+      margin-bottom: var(--sp-2xl);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .why-card {
+      background: var(--white);
+      padding: var(--sp-lg) var(--sp-md);
+      border-left: 3px solid var(--gold);
+      transition: box-shadow var(--transition);
+    }
+    .why-card:hover { box-shadow: 0 4px 24px rgba(31,42,68,0.07); }
+    .why-check {
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: var(--sp-sm);
+    }
+    .why-title { margin-bottom: var(--sp-xs); }
+    .why-body { }
+
+    /* ================================================
+       CTA STRIP
+    ================================================ */
+    .cta-strip {
+      background: var(--navy);
+      padding: var(--sp-2xl) 0;
+    }
+    .cta-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--sp-2xl);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--sp-2xl);
+    }
+    .cta-strip-headline {
+      font-size: clamp(22px, 2.8vw, 36px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .cta-strip-headline em { font-style: italic; color: var(--gold-light); }
+    .cta-strip-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+    }
+
+    /* ================================================
+       CONTACT
+    ================================================ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--sp-3xl);
+      align-items: start;
+    }
+    .contact-info { }
+    .contact-intro { margin-bottom: var(--sp-xl); }
+    .contact-details { border-top: 1px solid rgba(31,42,68,0.08); }
+    .contact-row {
+      display: flex;
+      gap: var(--sp-md);
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(31,42,68,0.08);
+      align-items: baseline;
+    }
+    .contact-row-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      width: 90px;
+      flex-shrink: 0;
+    }
+    .contact-row-value {
+      font-size: 15px;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .contact-row-value a {
+      color: var(--navy);
+      transition: color var(--transition);
+    }
+    .contact-row-value a:hover { color: var(--gold); }
+
+    /* Form */
+    .contact-form-wrap {
+      background: var(--white);
+      padding: var(--sp-2xl);
+    }
+    .form-title {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: var(--sp-xs);
+    }
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--gray-light);
+      margin-bottom: var(--sp-xl);
+      line-height: 1.5;
+    }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-sm);
+    }
+    .form-group { margin-bottom: var(--sp-sm); }
+    .form-label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .form-label span {
+      color: var(--gold);
+      margin-left: 2px;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--navy);
+      background: var(--offwhite);
+      border: 1px solid rgba(31,42,68,0.12);
+      padding: 13px var(--sp-sm);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: rgba(74,74,74,0.4); }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--navy);
+      background: var(--white);
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231F2A44' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      width: 100%;
+      padding: 17px;
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition);
+      margin-top: var(--sp-xs);
+    }
+    .form-submit:hover { background: var(--navy-dark); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-note {
+      font-size: 11px;
+      color: var(--gray-light);
+      margin-top: var(--sp-sm);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .form-msg {
+      display: none;
+      margin-top: var(--sp-sm);
+      padding: var(--sp-sm);
+      font-size: 13px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .form-msg.success { background: rgba(31,42,68,0.05); color: var(--navy); }
+    .form-msg.error { background: rgba(180,0,0,0.05); color: #8B0000; }
+
+    /* ================================================
+       FOOTER
+    ================================================ */
+    .footer {
+      background: #111827;
+      padding: var(--sp-3xl) 0 var(--sp-xl);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--sp-2xl);
+      padding-bottom: var(--sp-2xl);
+      border-bottom: 1px solid rgba(184,168,130,0.12);
+      margin-bottom: var(--sp-lg);
+    }
+    .footer-brand-js {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .footer-brand-tag {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--sp-md);
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.68;
+      color: rgba(255,255,255,0.38);
+      max-width: 270px;
+      margin-bottom: var(--sp-lg);
+    }
+    .footer-social {
+      display: flex;
+      gap: var(--sp-xs);
+    }
+    .footer-social a {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(184,168,130,0.6);
+      border: 1px solid rgba(184,168,130,0.2);
+      padding: 7px 14px;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .footer-social a:hover { color: var(--gold); border-color: rgba(184,168,130,0.5); }
+    .footer-col-title {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--sp-md);
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      transition: color var(--transition);
+      line-height: 1.4;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-sm);
+    }
+    .footer-legal {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-badges {
+      display: flex;
+      gap: var(--sp-xs);
+    }
+    .footer-badge {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(184,168,130,0.5);
+      border: 1px solid rgba(184,168,130,0.18);
+      padding: 5px 12px;
+    }
+
+    /* ================================================
+       REVEAL ANIMATION
+    ================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================================================
+       RESPONSIVE
+    ================================================ */
+    @media (max-width: 1100px) {
+      .container { padding: 0 var(--sp-lg); }
+      .nav-inner { padding: 0 var(--sp-lg); }
+      .hero-content .container { padding: 0 var(--sp-lg); }
+      .hero-rating { right: var(--sp-lg); }
+      .about-grid { grid-template-columns: 1fr; gap: var(--sp-2xl); }
+      .about-img { height: 440px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-grid {
+        grid-template-rows: 260px 220px;
+      }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .why-intro { grid-template-columns: 1fr; gap: var(--sp-xl); }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-xl); }
+      .cta-strip-inner { flex-direction: column; text-align: center; }
+      .trustbar-inner { gap: var(--sp-lg); }
+    }
+
+    @media (max-width: 768px) {
+      :root { --sp-3xl: 64px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-rating { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid {
+        display: flex;
+        flex-direction: column;
+      }
+      .p-hero, .p-top-r, .p-bot-l, .p-bot-m, .p-bot-r {
+        height: 260px;
+      }
+      .portfolio-intro { grid-template-columns: 1fr; gap: var(--sp-xl); }
+      .portfolio-footer { flex-direction: column; gap: var(--sp-md); align-items: flex-start; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-top { flex-direction: column; align-items: flex-start; }
+      .why-grid { grid-template-columns: 1fr; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .trust-sep { display: none; }
+      .services-header { flex-direction: column; align-items: flex-start; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .hero-scroll { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" aria-label="JS Clean Team — Home">
+        <div class="nav-logo-lockup">
+          <span class="nav-logo-js">JS</span>
+          <span class="nav-logo-sub">Clean Team</span>
+        </div>
+        <div class="nav-sep" aria-hidden="true"></div>
+        <span class="nav-company">Property Care</span>
+      </a>
+      <div class="nav-links" role="list">
+        <a href="#services" role="listitem">Services</a>
+        <a href="#portfolio" role="listitem">Portfolio</a>
+        <a href="#about" role="listitem">About</a>
+        <a href="#reviews" role="listitem">Reviews</a>
+        <a href="#contact" class="nav-cta" role="listitem">Request Availability</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileNav" role="menu">
+      <a href="#services" role="menuitem">Services</a>
+      <a href="#portfolio" role="menuitem">Portfolio</a>
+      <a href="#about" role="menuitem">About</a>
+      <a href="#reviews" role="menuitem">Reviews</a>
+      <a href="#contact" class="mobile-cta" role="menuitem">Request Availability</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-img" aria-hidden="true">
+      <img src="images/hero-luxury-living-room.webp" alt="" fetchpriority="high" />
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-line" aria-hidden="true"></span>
+          <span class="hero-eyebrow-text">Santa Rosa Beach, Florida</span>
+        </div>
+        <h1 class="h1 hero-title">
+          The standard<br>your property <em>deserves.</em>
+        </h1>
+        <p class="hero-subtitle">
+          Premium property care for high-standard residences and vacation rentals across Northwest Florida's Emerald Coast.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Request Availability</a>
+          <a href="#services" class="btn btn-outline-white">Our Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-rating" aria-label="5.0 stars — 11 Google Reviews">
+      <div class="hero-rating-stars" aria-hidden="true">★★★★★</div>
+      <div class="hero-rating-num">5.0</div>
+      <div class="hero-rating-label">11 Google Reviews</div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trustbar" role="complementary" aria-label="Trust indicators">
+    <div class="trustbar-inner">
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+        </svg>
+        <span class="trust-text">Licensed &amp; Insured LLC</span>
+      </div>
+      <div class="trust-sep" aria-hidden="true"></div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+        </svg>
+        <span class="trust-text">5.0 · 11 Google Reviews</span>
+      </div>
+      <div class="trust-sep" aria-hidden="true"></div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
+        </svg>
+        <span class="trust-text">Consistent Team — Every Visit</span>
+      </div>
+      <div class="trust-sep" aria-hidden="true"></div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        </svg>
+        <span class="trust-text">Emerald Coast · 30A · Destin</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section section--white" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal">
+          <div class="about-img">
+            <img src="images/portfolio-bathroom-spa.webp" alt="Premium property maintained by JS Clean Team — luxury bathroom spa" loading="lazy" />
+          </div>
+          <div class="about-img-border" aria-hidden="true"></div>
+        </div>
+        <div class="about-text reveal">
+          <span class="label">About JS Clean Team</span>
+          <div class="gold-rule"></div>
+          <h2 class="h2" style="margin-bottom: var(--sp-lg);">A partner in your<br>property's standard.</h2>
+          <p class="body-copy about-body">
+            JS Clean Team is a premium property care company based in Santa Rosa Beach, Florida. We serve residential homeowners and vacation rental owners across the 30A corridor, Destin, Miramar Beach, Inlet Beach, and the Emerald Coast.
+          </p>
+          <p class="body-copy about-body">
+            Our founding partners — Michel, Ju, and Stephany — personally execute every service. There are no subcontractors, no strangers in your home. The same trusted team, every visit, without exception.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <div class="stat-num">5.0</div>
+              <div class="stat-label">Google Rating</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">11</div>
+              <div class="stat-label">Five-Star Reviews</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">30A</div>
+              <div class="stat-label">Corridor Coverage</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">LLC</div>
+              <div class="stat-label">Florida Registered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section--offwhite" id="services">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <span class="label">What We Do</span>
+          <div class="gold-rule"></div>
+          <h2 class="h2">Services built for<br>high-standard properties.</h2>
+        </div>
+        <a href="#contact" class="btn btn-outline-gold">Request Availability</a>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <h3 class="h3 service-title">Residential Care</h3>
+          <p class="body-copy body-copy--sm service-body">Premium recurring maintenance for homes that are lived in. Weekly, biweekly, or monthly — same standard, same team, every visit.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">02</div>
+          <h3 class="h3 service-title">Vacation Rental Turnover</h3>
+          <p class="body-copy body-copy--sm service-body">Precision turnovers between reservations. Linen management, amenity restocking, and full visual inspection before every guest arrival.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">03</div>
+          <h3 class="h3 service-title">Deep Clean</h3>
+          <p class="body-copy body-copy--sm service-body">Comprehensive cleaning for first-time service, seasonal prep, or post-absence restoration. Baseboards, cabinets, ceiling fans, window tracks — everything.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">04</div>
+          <h3 class="h3 service-title">Post-Construction</h3>
+          <p class="body-copy body-copy--sm service-body">High-standard cleanup after renovations. Removal of construction dust, debris, and residue — delivered ready for professional photography or immediate occupancy.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">05</div>
+          <h3 class="h3 service-title">Move-In / Move-Out</h3>
+          <p class="body-copy body-copy--sm service-body">Complete deep clean for property transitions. Every surface, appliance, cabinet, and finish addressed — leaving the space ready for its next chapter.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">06</div>
+          <h3 class="h3 service-title">Touch-Up Clean</h3>
+          <p class="body-copy body-copy--sm service-body">Fast, targeted refresh before guests, showings, or events. Your property, guest-ready on short notice, to the same standard as every visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section section--white" id="portfolio">
+    <div class="container">
+      <div class="portfolio-intro">
+        <div>
+          <span class="label">Selected Spaces</span>
+          <div class="gold-rule"></div>
+          <h2 class="h2">The homes<br>we take care of.</h2>
+        </div>
+        <p class="body-copy">
+          From oceanfront vacation rentals on 30A to primary residences in Destin and Santa Rosa Beach — every property we maintain reflects the standard we hold ourselves to.
+        </p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="p-item p-hero">
+          <img src="images/living-room.webp" alt="Premium living room — Emerald Coast vacation rental" loading="lazy" />
+        </div>
+        <div class="p-item p-top-r">
+          <img src="images/portfolio-modern-kitchen.webp" alt="Luxury kitchen — residential property care" loading="lazy" />
+        </div>
+        <div class="p-item p-bot-l">
+          <img src="images/vacation-rental-bedroom.webp" alt="Guest bedroom — vacation rental turnover" loading="lazy" />
+        </div>
+        <div class="p-item p-bot-m">
+          <img src="images/portfolio-master-bedroom.webp" alt="Master bedroom — premium residential" loading="lazy" />
+        </div>
+        <div class="p-item p-bot-r">
+          <img src="images/vacation-rental-bathroom.webp" alt="Master bathroom — detailed cleaning service" loading="lazy" />
+        </div>
+      </div>
+      <div class="portfolio-footer">
+        <span class="portfolio-coverage">30A · Destin · Miramar Beach · Santa Rosa Beach · Inlet Beach · Panama City Beach</span>
+        <a href="#contact" class="btn btn-primary">Inquire About Your Property</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section--navy" id="reviews">
+    <div class="container">
+      <div class="reviews-top">
+        <div>
+          <span class="label">Client Reviews</span>
+          <div class="gold-rule"></div>
+          <h2 class="h2 h2--white">What our clients say.</h2>
+        </div>
+        <div class="reviews-score-block">
+          <div class="reviews-big-num" aria-label="5.0 rating">5.0</div>
+          <div class="reviews-score-meta">
+            <div class="reviews-stars" aria-label="Five stars">★★★★★</div>
+            <div class="reviews-count">11 Google Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="Five stars">★★★★★</div>
+          <p class="review-text">"We are thrilled with the very detailed and thorough job that you, Stephany and Ju did with our home. We look forward to seeing you again in 2 weeks. Thank you!"</p>
+          <span class="review-author">S. Cowan — Santa Rosa Beach, FL</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="Five stars">★★★★★</div>
+          <p class="review-text">"We are so happy to have found you both! Thank you for taking such good care of us and our new home."</p>
+          <span class="review-author">N. Ransom — Santa Rosa Beach, FL</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="Five stars">★★★★★</div>
+          <p class="review-text">"He said everything looks AMAZING. You guys even did small touches we didn't ask for to make it better. We're so thankful for you guys."</p>
+          <span class="review-author">A. Clark — Miramar Beach, FL</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="Five stars">★★★★★</div>
+          <p class="review-text">"Everything looks wonderful and you guys are so fast! Thank you so so much."</p>
+          <span class="review-author">K. DeMarchis — Destin, FL</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="Five stars">★★★★★</div>
+          <p class="review-text">"Exceptional consistency. Every visit our home is exactly as we expect it — impeccable detail and total reliability."</p>
+          <span class="review-author">M. Henderson — Inlet Beach, FL</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="Five stars">★★★★★</div>
+          <p class="review-text">"The most professional cleaning team we've worked with on 30A. Guests consistently comment on the presentation of our rental."</p>
+          <span class="review-author">R. Thompson — Rosemary Beach, FL</span>
+        </div>
+      </div>
+      <div class="reviews-actions">
+        <a href="https://www.google.com/search?q=JS+Clean+Team+Santa+Rosa+Beach+FL" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white">See All Reviews on Google</a>
+        <a href="https://g.page/r/CdfO7UP8WWpEEBM/review" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white">Leave a Review</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY JS CLEAN TEAM -->
+  <section class="section section--offwhite">
+    <div class="container">
+      <div class="why-intro">
+        <div>
+          <span class="label">Our Commitment</span>
+          <div class="gold-rule"></div>
+          <h2 class="h2">The difference is<br>in the detail.</h2>
+        </div>
+        <p class="body-copy" style="padding-top: var(--sp-sm);">
+          We are not a generic cleaning service. We are a property care team built for owners who value quality, discretion, and reliability — and who expect the same standard every single time.
+        </p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-check" aria-hidden="true">✔</div>
+          <h3 class="h3 why-title">Licensed &amp; Insured</h3>
+          <p class="body-copy body-copy--sm why-body">Florida LLC with Commercial General Liability ($1M/$2M) and Workers Compensation. Full documentation available on request.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-check" aria-hidden="true">✔</div>
+          <h3 class="h3 why-title">Consistent Team</h3>
+          <p class="body-copy body-copy--sm why-body">Michel, Ju, and Stephany personally execute every service. No subcontractors. No strangers in your home. The same trusted team, every visit.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-check" aria-hidden="true">✔</div>
+          <h3 class="h3 why-title">Premium Standard</h3>
+          <p class="body-copy body-copy--sm why-body">We specialize in high-end properties. Every finish, surface, and space is treated with the care and intention it deserves.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-check" aria-hidden="true">✔</div>
+          <h3 class="h3 why-title">Real-Time Notifications</h3>
+          <p class="body-copy body-copy--sm why-body">You know when we're on the way, when we start, and when your home is ready. Complete transparency on every visit.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-check" aria-hidden="true">✔</div>
+          <h3 class="h3 why-title">Local Expertise</h3>
+          <p class="body-copy body-copy--sm why-body">Based in Santa Rosa Beach. We know the Emerald Coast, the property types, and what serious homeowners and property managers require.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-check" aria-hidden="true">✔</div>
+          <h3 class="h3 why-title">Discretion &amp; Trust</h3>
+          <p class="body-copy body-copy--sm why-body">We work in your home with professionalism, responsibility, and respect. Trust is built over time — and it is the foundation of every relationship we have.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="cta-strip-inner">
+      <div>
+        <h2 class="cta-strip-headline">Ready to elevate your <em>property care?</em></h2>
+        <p class="cta-strip-sub">Serving 30A · Destin · Miramar Beach · Inlet Beach · Santa Rosa Beach · Panama City Beach</p>
+      </div>
+      <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="section section--white" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div class="contact-info">
+          <span class="label">Get In Touch</span>
+          <div class="gold-rule"></div>
+          <h2 class="h2 contact-intro">Let's discuss<br>your property.</h2>
+          <p class="body-copy" style="margin-bottom: var(--sp-xl);">
+            We begin with a conversation about your home, your schedule, and your expectations. No commitment required — just a clear picture of how we can help.
+          </p>
+          <div class="contact-details">
+            <div class="contact-row">
+              <span class="contact-row-label">Phone</span>
+              <span class="contact-row-value"><a href="tel:+13216622243">+1 (321) 662-2243</a></span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Email</span>
+              <span class="contact-row-value"><a href="mailto:contact@jscleanteam.com">contact@jscleanteam.com</a></span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Location</span>
+              <span class="contact-row-value">Santa Rosa Beach, FL 32459</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Coverage</span>
+              <span class="contact-row-value">30A · Destin · Miramar Beach · Inlet Beach · Santa Rosa Beach · Panama City Beach</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Instagram</span>
+              <span class="contact-row-value"><a href="https://www.instagram.com/jscleanteam_/" target="_blank" rel="noopener noreferrer">@jscleanteam_</a></span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row-label">Facebook</span>
+              <span class="contact-row-value"><a href="https://www.facebook.com/Jscleanteamfl" target="_blank" rel="noopener noreferrer">JS Clean Team</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-wrap">
+          <h3 class="form-title">Request Availability</h3>
+          <p class="form-subtitle">We respond within 24 hours. All inquiries are treated with complete discretion.</p>
+
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="6abf6b03-4c5e-418e-b3c8-66aa9dc64c51" />
+            <input type="hidden" name="subject" value="New Inquiry — JS Clean Team Website" />
+            <input type="hidden" name="from_name" value="JS Clean Team Website" />
+            <input type="hidden" name="redirect" value="false" />
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="firstName">First Name <span>*</span></label>
+                <input class="form-input" type="text" id="firstName" name="first_name" required autocomplete="given-name" placeholder="Jane" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lastName">Last Name <span>*</span></label>
+                <input class="form-input" type="text" id="lastName" name="last_name" required autocomplete="family-name" placeholder="Smith" />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="email">Email <span>*</span></label>
+                <input class="form-input" type="email" id="email" name="email" required autocomplete="email" placeholder="jane@example.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone</label>
+                <input class="form-input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(850) 000-0000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="propertyAddress">Property Address</label>
+              <input class="form-input" type="text" id="propertyAddress" name="property_address" placeholder="123 Gulf View Drive, Santa Rosa Beach, FL" />
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="propertyType">Property Type <span>*</span></label>
+                <select class="form-select" id="propertyType" name="property_type" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Vacation Rental">Vacation Rental</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="bedrooms">Bedrooms <span>*</span></label>
+                <select class="form-select" id="bedrooms" name="bedrooms" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="2 Bedrooms">2 Bedrooms</option>
+                  <option value="3 Bedrooms">3 Bedrooms</option>
+                  <option value="4 Bedrooms">4 Bedrooms</option>
+                  <option value="5 Bedrooms">5 Bedrooms</option>
+                  <option value="6 Bedrooms">6 Bedrooms</option>
+                  <option value="7+ Bedrooms">7+ Bedrooms</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="sqft">Square Footage</label>
+                <select class="form-select" id="sqft" name="square_footage">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Under 1,500 sqft">Under 1,500 sqft</option>
+                  <option value="1,500 – 2,500 sqft">1,500 – 2,500 sqft</option>
+                  <option value="2,500 – 4,000 sqft">2,500 – 4,000 sqft</option>
+                  <option value="4,000 – 6,000 sqft">4,000 – 6,000 sqft</option>
+                  <option value="Over 6,000 sqft">Over 6,000 sqft</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="serviceType">Service Type <span>*</span></label>
+                <select class="form-select" id="serviceType" name="service_type" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="Residential Care">Residential Care</option>
+                  <option value="Vacation Rental Turnover">Vacation Rental Turnover</option>
+                  <option value="Deep Clean">Deep Clean</option>
+                  <option value="Post-Construction">Post-Construction</option>
+                  <option value="Move-In / Move-Out">Move-In / Move-Out</option>
+                  <option value="Touch-Up Clean">Touch-Up Clean</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="frequency">Service Frequency</label>
+              <select class="form-select" id="frequency" name="frequency">
+                <option value="" disabled selected>Select</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Biweekly">Biweekly</option>
+                <option value="Monthly">Monthly</option>
+                <option value="One-Time">One-Time</option>
+                <option value="As-Needed (Vacation Rental)">As-Needed (Vacation Rental)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preferredContact">Preferred Contact Method</label>
+              <select class="form-select" id="preferredContact" name="preferred_contact">
+                <option value="" disabled selected>Select</option>
+                <option value="Email">Email</option>
+                <option value="Phone Call">Phone Call</option>
+                <option value="Text / SMS">Text / SMS</option>
+                <option value="WhatsApp">WhatsApp</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Tell us about your property</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Any special requirements, access instructions, pet information, or other details that would help us prepare..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
+            <p class="form-note">We respond within 24 hours. All inquiries are handled with complete discretion.</p>
+            <div class="form-msg" id="formMsg" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-js">JS Clean Team</div>
+          <div class="footer-brand-tag">Premium Property Care</div>
+          <p class="footer-brand-desc">
+            Consistent, detail-driven property care for residential homes and vacation rentals across Northwest Florida's Emerald Coast.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/jscleanteam_/" target="_blank" rel="noopener noreferrer" aria-label="JS Clean Team on Instagram">Instagram</a>
+            <a href="https://www.facebook.com/Jscleanteamfl" target="_blank" rel="noopener noreferrer" aria-label="JS Clean Team on Facebook">Facebook</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="#services">Residential Care</a>
+            <a href="#services">Vacation Rental Turnover</a>
+            <a href="#services">Deep Clean</a>
+            <a href="#services">Post-Construction</a>
+            <a href="#services">Move-In / Move-Out</a>
+            <a href="#services">Touch-Up Clean</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-links">
+            <a href="tel:+13216622243">+1 (321) 662-2243</a>
+            <a href="mailto:contact@jscleanteam.com">contact@jscleanteam.com</a>
+            <a href="https://www.instagram.com/jscleanteam_/" target="_blank" rel="noopener noreferrer">@jscleanteam_</a>
+            <a href="https://www.facebook.com/Jscleanteamfl" target="_blank" rel="noopener noreferrer">facebook.com/Jscleanteamfl</a>
+            <span style="color:rgba(255,255,255,0.3);">Santa Rosa Beach, FL 32459</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-legal">© 2026 JS Clean Team LLC · Santa Rosa Beach, FL · All rights reserved.</span>
+        <div class="footer-badges">
+          <span class="footer-badge">Insured</span>
+          <span class="footer-badge">Licensed</span>
+          <span class="footer-badge">Florida LLC</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 3) * 0.08}s`;
+      revealObserver.observe(el);
+    });
+
+    // Contact form
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMsg = document.getElementById('formMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      formMsg.style.display = 'none';
+      formMsg.className = 'form-msg';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form)
+        });
+        const json = await res.json();
+        if (json.success) {
+          formMsg.className = 'form-msg success';
+          formMsg.textContent = 'Thank you. We will be in touch within 24 hours.';
+          form.reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        formMsg.className = 'form-msg error';
+        formMsg.textContent = 'Something went wrong. Please email us directly at contact@jscleanteam.com or call +1 (321) 662-2243.';
+      } finally {
+        formMsg.style.display = 'block';
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
